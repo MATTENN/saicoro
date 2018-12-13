@@ -123,6 +123,28 @@ class ViewController: UIViewController {
         })
     }
     
+    override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        print("motionBegan")
+        
+        if event?.type == .motion && event?.subtype == .motionShake {
+            shake()
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        print("motionEnded")
+    }
+    
+    override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        print("motionCanceled")
+    }
+    
     func shuffle(){
         
         let url = Bundle.main.bundleURL.appendingPathComponent("sound.mp3")
