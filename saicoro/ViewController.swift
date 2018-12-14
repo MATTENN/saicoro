@@ -149,6 +149,8 @@ class ViewController: UIViewController {
         
         let url = Bundle.main.bundleURL.appendingPathComponent("sound.mp3")
         
+         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()
